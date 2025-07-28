@@ -18,7 +18,7 @@ spending_tracker/
 ```
 
 
-
+**Example Page:**
 ![example image of dashbaord](image.png)
 
-BY RICKY CIRCELLI
+**BY RICKY CIRCELLI**
