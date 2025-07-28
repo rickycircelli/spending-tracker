@@ -1,15 +1,29 @@
-# add all dashbaord functions here
-from database import fetch_latest_json
-import json  
+import json
+import pandas as pd
 
+#net worth
+def net_worth():
+    pass
 
-latest_saving_checking = fetch_latest_json("saving_checking")
-latest_credit = fetch_latest_json("credit")
+# spedning per month
+def spending_per_month():
+    pass
 
-print("✅ Latest saving_checking JSON:")
-print(json.dumps(latest_saving_checking, indent=2))
+#spending per category (last 30 days)
+def spending_per_cat():
+    pass
 
-print("✅ Latest credit JSON:")
-print(json.dumps(latest_credit, indent=2))
+#spending per category pie (last 30 days)
+def spending_per_cat_pie():
+    pass
 
+# income vs expenses
+def income_expenses():
+    pass
 
+# recurrring transactions
+def supscriptions():
+    pass
+
+if __name__ == "__main__":
+    net_worth()

@@ -72,12 +72,12 @@ def fetch_all_data(access_token=None):
         "item": account_response.item.to_dict()
     }
 
-if __name__ == "__main__":
+def fetch_and_save():
+    # fetch data from plaid
     data_credit= fetch_all_data("PLAID_ACCESS_TOKEN_CREDIT")
     data_saving_checking = fetch_all_data("PLAID_ACCESS_TOKEN")
-    os.makedirs("data", exist_ok=True)
 
-    # Save to database
+    # save to database
     filename_saving_checking = f"saving_checking_{date.today().strftime('%Y%m%d')}"
     save_json_to_supabase(data_saving_checking, filename_saving_checking)
 
@@ -87,4 +87,6 @@ if __name__ == "__main__":
     print(f"Saved data to {filename_saving_checking} and {filename_credit}")
 
 
+if __name__ == "__main__":
+    fetch_and_save()
 

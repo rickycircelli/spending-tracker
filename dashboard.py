@@ -2,7 +2,9 @@ import streamlit as st
 import pandas as pd
 from plaid.api import plaid_api
 from datetime import datetime
-from database import log_refresh_time, pull_last_refresh
+from database import log_refresh_time, pull_last_refresh, save_json_to_supabase, make_json_safe, transfrom_data
+from dash_functions import net_worth, spending_per_cat, spending_per_cat_pie, spending_per_month, supscriptions, income_expenses
+from fetcher import fetch_and_save
 
 st.title("Personal Spending Tracker")
 
@@ -14,6 +16,9 @@ if "authenticated" not in st.session_state:
     else:
         st.stop()
 
+# make sure we have latest data uploaded and saved in data folder
+transfrom_data()
+
 # function to format currency 
 def format_currency(amount):
     return f"${amount:,.2f}"
@@ -24,9 +29,8 @@ page = st.sidebar.selectbox("Choose a page", ["Home", "Dashboard", "Subscription
 # button to resync data (with confirmation)
 if st.button("Refresh Data"):
     log_refresh_time()
-    # Call function to fetch data
-    # Call function to save data to database
-    # Call function to transform data
+    fetch_and_save() 
+    transfrom_data() # stored locally in data folder
         
 last_refresh = pull_last_refresh()
 st.caption(f"Last Refresh Time: {last_refresh}")
