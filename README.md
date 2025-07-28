@@ -1,26 +1,21 @@
 # spending-tracker
 
-[x] transfer the plaid data fetcher over to this project
-[x] transfer my reral data over to project
-[x] update fetcher to pull btoh checking and credit
-[x] add button to resync with plaid
-[x] setup superbase as the database
-[x] setup database to log refresh time and save plaid json data from fetcher
-[x] test fetcher and if it saves to database
-[] setup docker
+spending_tracker/
+│
+├── data/ # Local data storage (ignored in Git, only .gitkeep tracked)
+│ └── .gitkeep # Placeholder to keep the folder in the repo
+│
+├── dash_functions.py # Functions used for dashboard display and logic
+├── dashboard.py # Main Streamlit dashboard interface
+├── database.py # Handles Supabase read/write operations
+├── fetcher.py # Pulls data from Plaid and saves to Supabase
+│
+├── .gitignore # Files/folders Git should ignore (like .env, venv/, etc.)
+├── requirements.txt # Python dependencies
+├── README.md # Project overview and documentation
 
-# functions for dashbaord (dash_functions.py)
+**Spending Tracker** is a personal finance dashboard built with **Python**, **Streamlit**, and **Plaid**. It securely connects to your bank and credit card accounts to fetch transaction data and visualize income, expenses, subscriptions, and spending patterns. Charts and metrics help users gain clear insights into their finances. Data is managed locally and synced to **Supabase** for cloud storage.
 
-[x] function to transfrom json into dataframe
-[x] setup data folder
-[] add data to file names in data folder
-[] spending per month
-[] spending per category for the month/year
-[] net worth calc
-[] recurring transactions
-[] income vs expesnes
-[] pie chart of spending per category
+![example image of dashbaord](image.png)
 
 BY RICKY CIRCELLI
-
-[ data ] -> for local storing of transformed data
