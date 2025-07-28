@@ -91,8 +91,9 @@ def transfrom_data():
             "balance": balance,
         })
 
-    pd.DataFrame(saving_checking_accounts).to_csv("data/saving_checking_accounts.csv", index=False)
-    print("Saving and checking accounts saved to saving_checking_accounts.csv")
+    filename_saving_checking_accounts = f"data/saving_checking_accounts_{date.today().strftime('%Y%m%d')}"
+    pd.DataFrame(saving_checking_accounts).to_csv(filename_saving_checking_accounts, index=False)
+    print("Saving and checking accounts saved to {filename_saving_checking_accounts}")
 
     checking_txns = []
     for txn in latest_saving_checking.get("transactions", []):
@@ -110,8 +111,9 @@ def transfrom_data():
             "merchant_name": txn.get("merchant_name", ""),
         })
 
-    pd.DataFrame(checking_txns).to_csv("data/checking_transactions.csv", index=False)
-    print("Checking transactions saved to checking_transactions.csv")
+    filename_checking_transactions = f"data/checking_transactions_{date.today().strftime('%Y%m%d')}"
+    pd.DataFrame(checking_txns).to_csv(filename_checking_transactions, index=False)
+    print("Checking transactions saved to {filename_checking_transactions}")
 
     # --- credit ---
 
@@ -130,14 +132,12 @@ def transfrom_data():
             "transaction_type": txn.get("transaction_type", "unknown"),
             "merchant_name": txn.get("merchant_name", ""),
         })
-
-    pd.DataFrame(credit_txns).to_csv("data/credit_transactions.csv", index=False)
-    print("Credit transactions saved to credit_transactions.csv")
+    
+    filename_credit_transactions = f"data/credit_transactions_{date.today().strftime('%Y%m%d')}"
+    pd.DataFrame(credit_txns).to_csv(filename_credit_transactions, index=False)
+    print("Credit transactions saved to {filename_credit_transactions}")
 
 if __name__ == "__main__":
     # test usage
-    log_refresh_time()
-    last_refresh = pull_last_refresh()
-    print(f"Last refresh time: {last_refresh}")
     transfrom_data()
 
