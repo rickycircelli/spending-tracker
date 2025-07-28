@@ -19,3 +19,8 @@ Thumbs.db
 
 # Editor settings (optional)
 .vscode/
+
+# Ignore all files in the data folder
+data/*
+# But keep this placeholder file
+!data/.gitkeep
