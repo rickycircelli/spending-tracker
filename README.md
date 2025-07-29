@@ -17,8 +17,27 @@ spending_tracker/
 ├── README.md                 # Project overview and documentation
 ```
 
+## Features
+- Real data pulled from Plaid securely (secrets/keys stored in .env)
+- Visualize Income vs. Expenses by Month
+- Visualize Spending by Month
+- Visualize Spending by Category (Bar and pie charts)
+- Visualize Spending by Merchant 
+- View net worth and breakdown by account type
+- Track subscriptions
+- Data saved on cloud to limit Plaid API calls
+- Button to pull fresh data from Plaid
+- Last refresh datetime shown
 
-**Example Page:**
+## Tech Stack
+- Python
+- Streamlit (Dashboard)
+- Plaid API (Financial Data)
+- Pandas (Data Analysis)
+- Matplotlib (Data Visualization)
+- Supabase (Cloud Backup)
+
+## Example Page
 ![example image of dashbaord](image.png)
 
 **BY RICKY CIRCELLI**
