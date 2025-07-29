@@ -19,6 +19,8 @@ spending_tracker/
 
 ## Features
 - Real data pulled from Plaid securely (secrets/keys stored in .env)
+- Password Protected
+- Multiple Pages (Home, Dashboard, Subscriptions)
 - Visualize Income vs. Expenses by Month
 - Visualize Spending by Month
 - Visualize Spending by Category (Bar and pie charts)
